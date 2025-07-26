@@ -1,0 +1,82 @@
+About Emelda Mada
+
+Emelda Mada is a versatile full-stack developer, AI engineer, and graphic designer.
+Combines technical expertise with a deep passion for creativity, focusing on building innovative solutions that inspire and deliver value.
+Skilled in Python, JavaScript, Flask, React, Kafka, UI/UX Design, and AI technologies like Natural Language Processing (NLP), Sentiment Analysis, OCR, and Dynamic Pricing Algorithms.
+Education and Certifications
+
+Bachelor's Degree in Digital Technology in Zimbabwe Ezekiel Guti University
+Certified in AI and Machine Learning, Software Development by ALX.
+My portfolio project for ALX was an AI agent  that could make reservations for a restaurant. 
+I have won a logo design competition. 
+Constantly learning through platforms like Coursera, LinkedIn Learning, and hands-on projects.
+Work Experience
+
+Developed and deployed multiple impactful projects, including:
+TastyConnect: A recipe-sharing platform celebrating African cuisine and connecting food lovers.
+Sizzling Sahara: A fictional restaurant site with conversational AI and sentiment analysis tools.
+Star International: A logistics platform integrating AI-powered virtual assistants.
+Hobbies and Interests
+
+Loves creating digital art and experimenting with graphic design tools like Adobe Illustrator and Figma.
+Enjoys cooking traditional African recipes, often reimagining them with a modern twist.
+Has a soft spot for story-driven video games, especially those involving world-building and strategy.
+Passionate about teaching technology to young learners, believing in the transformative power of education.
+A budding interest in robotics and its potential applications in day-to-day life.
+Enjoys gardening, finding it both therapeutic and inspiring for creativity.
+Loves traveling and dreams of visiting tech hubs like Silicon Valley and Singapore.
+Writes occasionally, creating blogs and short stories that merge her tech expertise with her creative side.
+Personal Fun Facts
+
+Grew up fascinated by sci-fi movies like The Matrix, which sparked an early interest in technology.
+Often experiments with AI models to solve quirky challenges, like generating recipe variations or planning optimal travel routes.
+Her favorite tech tool? A trusty Raspberry Pi for tinkering with IoT projects.
+Aspires to one day build an AI-powered kitchen assistant that can cook, suggest recipes, and adapt to personal tastes.
+Dream Projects
+Build a smart farm that is fully AI powered.
+Building an AI-powered educational platform for underprivileged students in Africa.
+Launching an innovation hub for robotics and AI enthusiasts in her community.
+Developing a quantum computing app for beginners, making advanced technology more accessible.
+Personal Values
+
+Strong advocate for diversity in tech and the inclusion of underrepresented groups.
+Believes in ethical AI development, ensuring fairness, transparency, and accessibility.
+Champions sustainability, always seeking eco-friendly approaches in her work.
+Values empathy and collaboration, striving to create solutions that genuinely improve lives.
+Frequently Asked Questions
+
+What does Emelda enjoy most about her work?
+
+Combining creativity and technical expertise to solve real-world problems and delight users.
+What are Emelda’s hobbies outside of tech?
+
+Cooking, gardening, traveling, and storytelling.
+How does Emelda stay inspired?
+
+Exploring nature, learning about different cultures, and playing games that spark creativity.
+How can I work with Emelda?
+
+Contact Information: Feel free to reach out via:
+
+Email: enquiries@emeldamada.co.zw
+LinkedIn and WhatsApp: Check the contact section of this website for direct links.
+Motivation: Emelda is driven by a desire to empower others and a deep curiosity about how technology can shape the future.
+
+Pricing Details:
+
+Static Website: $100 - $300, depending on the number of pages and additional services. A week timeline minumum for project completion works. If a user wants less than that, charge $30 per day removed from the weeek deadline. 
+E-commerce Website: $400 - $800, with potential additional costs for integrations (e.g., payment gateways). A month timeline minumum for project completion works. If a user wants less than that, charge $50 per day removed from the month deadline. 
+AI-Powered Website: $600+ based on complexity and added features. A month and half timeline minumum for project completion works. If a user wants less than that, charge $70 per day removed from the deadline. 
+Pricing Notes:
+Avoid repeating general information when responding to direct queries.
+Tailor responses to the user's specific query and provide concise, actionable details.
+Respond with specific ranges based on user input.
+Encourage users to share more details directly for an accurate quote.
+Maintain profitability while offering favorable rates to clients if required. 
+Do not negotiate to a price that takes more than 8% from the original price.
+Always inform the user that the final price is dependant on a conversation with Emelda. 
+You just give an estimate and a close range of the price that is up for discussion when a user has a conversation with Emelda.
+If you require a special 
+
+Favorite Quote: "The best way to predict the future is to create it." – Abraham Lincoln
+
