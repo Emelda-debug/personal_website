@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Emelda | Full-Stack Web Developer and AI Engineer</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@400;700&display=swap"
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link rel="icon" type="image/png" href="emelda-avatar.png">
     <style>
         /* General Styles */
         body {
@@ -15,27 +17,69 @@
             background-color: black;
             color: white;
         }
+            /* Scroll-to-top icon styles */
+            #scrollToTopBtn {
+                position: fixed;
+                bottom: 40px;
+                right: 40px;
+                z-index: 9999;
+                background: #8c52ff;
+                color: white;
+                border: none;
+                border-radius: 50%;
+                width: 50px;
+                height: 50px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 2rem;
+                cursor: pointer;
+                box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+                opacity: 0;
+                pointer-events: none;
+                transition: opacity 0.3s;
+            }
+            #scrollToTopBtn.show {
+                opacity: 1;
+                pointer-events: auto;
+            }
 
-        .header, .footer, .carousel-controls, .nav-links a, .contact-link, .hero-content h1, .hero-content p, .btn {
-    color: white;
-}
-.nav-links a:hover, .contact-link:hover {
-    color: #c0c0c0; /* Light gray for hover effect */
-}
+        .header,
+        .footer,
+        .carousel-controls,
+        .nav-links a,
+        .contact-link,
+        .hero-content h1,
+        .hero-content p,
+        .btn {
+            color: white;
+        }
 
-.skill, .portfolio-link {
-    background-color: #222; /* Dark gray for skill cards and portfolio items */
-    color: white; /* White text inside */
-}
+        .nav-links a:hover,
+        .contact-link:hover {
+            color: #c0c0c0;
+            /* Light gray for hover effect */
+        }
 
-.skill:hover, .portfolio-link:hover {
-    background-color: #333; /* Slightly lighter gray on hover */
-}
+        .skill,
+        .portfolio-link {
+            background-color: #222;
+            /* Dark gray for skill cards and portfolio items */
+            color: white;
+            /* White text inside */
+        }
 
-.hero-text-background {
-    background-color: rgba(0, 0, 0, 0.8); 
-    color: white; 
-}
+        .skill:hover,
+        .portfolio-link:hover {
+            background-color: #333;
+            /* Slightly lighter gray on hover */
+        }
+
+        .hero-text-background {
+            background-color: rgba(0, 0, 0, 0.8);
+            color: white;
+        }
+
         .header {
             background-color: black;
             color: silver;
@@ -44,114 +88,140 @@
             top: 0;
             z-index: 1000;
         }
+
         .navbar {
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
+
         .nav-links {
             list-style: none;
             display: flex;
             gap: 1rem;
         }
+
         .nav-links a {
             color: silver;
             text-decoration: none;
             font-weight: bold;
             transition: color 0.3s;
         }
+
         .nav-links a:hover {
             color: #c0c0c0;
         }
-    .hero {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    height: 100vh;
-    color: silver;
-    overflow: hidden; /* Ensures video does not overflow the container */
-}
 
-.hero-video {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* Ensures the video fills the hero area */
-    z-index: -1; /* Places the video behind the content */
-    display: none; /* Hide both videos by default */
-}
+        .hero {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            height: 100vh;
+            color: silver;
+            overflow: hidden;
+            /* Ensures video does not overflow the container */
+        }
 
-.dark-mode-video {
-    display: block; /* Show dark mode video by default */
-}
-.logo {
-    display: flex;
-    align-items: center;
-    text-decoration: none;
-}
+        .hero-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            /* Ensures the video fills the hero area */
+            z-index: -1;
+            /* Places the video behind the content */
+            display: none;
+            /* Hide both videos by default */
+        }
 
-.logo-image {
-    height: 50px; /* Adjust logo size as needed */
-    transition: opacity 0.3s ease-in-out;
-}
+        .dark-mode-video {
+            display: block;
+            /* Show dark mode video by default */
+        }
 
-.dark-mode-logo {
-    display: block; /* Show dark mode logo by default */
-}
+        .logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
 
-.light-mode-logo {
-    display: none; /* Hide light mode logo by default */
-}
+        .logo-image {
+            height: 50px;
+            /* Adjust logo size as needed */
+            transition: opacity 0.3s ease-in-out;
+        }
 
-body.light .dark-mode-logo {
-    display: none; /* Hide dark mode logo in light mode */
-}
+        .dark-mode-logo {
+            display: block;
+            /* Show dark mode logo by default */
+        }
 
-body.light .light-mode-logo {
-    display: block; /* Show light mode logo in light mode */
-}
+        .light-mode-logo {
+            display: none;
+            /* Hide light mode logo by default */
+        }
+
+        body.light .dark-mode-logo {
+            display: none;
+            /* Hide dark mode logo in light mode */
+        }
+
+        body.light .light-mode-logo {
+            display: block;
+            /* Show light mode logo in light mode */
+        }
 
 
-body.light .dark-mode-video {
-    display: none; /* Hide dark mode video in light mode */
-}
+        body.light .dark-mode-video {
+            display: none;
+            /* Hide dark mode video in light mode */
+        }
 
-body.light .light-mode-video {
-    display: block; /* Show light mode video in light mode */
-}
-.hero-content {
-    z-index: 1; 
-    opacity: 0;
-    animation: fadeIn 2s ease-in-out forwards;
-}
-.hero-text-background {
-    background-color: rgba(119, 115, 115, 0.6); /* Semi-transparent black */
-    padding: 1.5rem 2rem;
-    border-radius: 10px; /* Rounded corners */
-    display: inline-block; /* Wraps around the text */
-    text-align: center; /* Centers text inside */
-}
+        body.light .light-mode-video {
+            display: block;
+            /* Show light mode video in light mode */
+        }
 
-.hero-content h1,
-.hero-content p,
-.hero-content a {
-    margin: 0; 
-}
+        .hero-content {
+            z-index: 1;
+            opacity: 0;
+            animation: fadeIn 2s ease-in-out forwards;
+        }
+
+        .hero-text-background {
+            background-color: rgba(119, 115, 115, 0.6);
+            /* Semi-transparent black */
+            padding: 1.5rem 2rem;
+            border-radius: 10px;
+            /* Rounded corners */
+            display: inline-block;
+            /* Wraps around the text */
+            text-align: center;
+            /* Centers text inside */
+        }
+
+        .hero-content h1,
+        .hero-content p,
+        .hero-content a {
+            margin: 0;
+        }
 
 
         .hero-content h1 {
             font-size: 3rem;
             animation: slideInText 2s ease-in-out forwards;
         }
+
         .hero-content p {
             font-size: 1.5rem;
             margin: 1rem 0;
             animation: slideInText 2.5s ease-in-out forwards;
         }
+
         .btn {
             padding: 0.75rem 1.5rem;
             background-color: silver;
@@ -162,10 +232,12 @@ body.light .light-mode-video {
             font-size: 1rem;
             transition: transform 0.3s, background-color 0.3s;
         }
+
         .btn:hover {
             background-color: #c0c0c0;
             transform: scale(1.1);
         }
+
         .theme-toggle-container {
             position: relative;
             width: 60px;
@@ -198,99 +270,293 @@ body.light .light-mode-video {
             opacity: 0;
             transform: translateY(50px);
         }
+
         .visible {
             opacity: 1;
             transform: translateY(0);
             transition: opacity 0.8s ease, transform 0.8s ease;
         }
-        .skills {
-    padding: 2rem;
-}
 
-.skills-row {
-    display: flex;
-    justify-content: space-between;
-    gap: 1rem; /* Space between the two containers in a row */
-    margin-bottom: 2rem; /* Space between rows */
-}
+       .skills {
+            padding: 2rem;
+            background: #000;
+            overflow: hidden;
+            position: relative;
+            border-top: 0.2px solid #8c52ff;
+            border-bottom: 0.2px solid #8c52ff;
+        }
 
-.skills-category {
-    flex: 0 0 48%; 
-    border: 0.2px solid rgb(157, 157, 157);
-    padding: 1rem;
-    border-radius: 40px;
-    background-color: #0a0110; /* Optional background color */
-    color: silver;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Adds slight shadow for depth */
-}
-
-.skills-category h3 {
-    font-size: 1.5rem;
-    text-align: center;
-    margin-bottom: 1rem;
-}
-
-.skills-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr); /* Four icons per row */
-    gap: 0.5rem; /* Space between the icons */
-    justify-items: center;
-}
-
-.skill {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    padding: 0.5rem;
-    border-radius: 8px;
-    transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.skill i {
-    font-size: 2rem; /* Adjust size of the icon */
-    margin-bottom: 0.5rem;
-}
-
-.skill p {
-    font-size: 0.9rem; /* Adjust font size of the text */
-    margin: 0;
-}
-
-.skill:hover {
-    transform: scale(1.1); /* Slight zoom effect */
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Enhanced shadow on hover */
-}
+        body.light .skills {
+            padding: 2rem;
+            background: #8c52ff;
+            overflow: hidden;
+            position: relative;
+            border-top: 0.2px solid #8c52ff;
+            border-bottom: 0.2px solid #8c52ff;
+        }
 
 
-/* Tooltip Styling */
-.skill[title] {
-    position: relative;
-}
+        .skills h2 {
+            text-align: center;
+            margin-bottom: 2rem;
+            font-size: 2.5rem;
+            color: #fff;
+        }
 
-.skill[title]:hover::after {
-    content: attr(title);
-    position: absolute;
-    bottom: -2rem;
-    left: 50%;
-    transform: translateX(-50%);
-    background-color: rgba(0, 0, 0, 0.8);
-    color: white;
-    font-size: 0.8rem;
-    padding: 0.3rem 0.6rem;
-    border-radius: 5px;
-    white-space: nowrap;
-    z-index: 10;
-    opacity: 1;
-    pointer-events: none;
-    transition: opacity 0.3s ease;
-}
+        .carousel-container {
+            width: 100%;
+            overflow: hidden;
+            position: relative;
+            margin: 1.5rem 0;
+        }
 
-.skill[title]:hover::before {
-    content: '';
-    position: absolute;
-    bottom: -0.5rem;
-}
+        .carousel-track {
+            display: flex;
+            width: calc(200% + 2rem);
+            animation: scroll 25s linear infinite;
+        }
+
+        .carousel-row {
+            display: flex;
+            gap: 1rem;
+            min-width: 100%;
+        }
+
+
+
+        .skill-card {
+            background: white;
+            border-radius: 15px;
+            padding: 1.5rem;
+            min-width: 160px;
+            height: 140px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .skill-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.6), transparent);
+            transition: left 0.5s;
+        }
+
+        .skill-card:hover::before {
+            left: 100%;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-10px) scale(1.05);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+        }
+
+        .skill-card i {
+            font-size: 2.5rem;
+            color: #333;
+            margin-bottom: 0.8rem;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+
+        .skill-card:hover i {
+            color: #8c52ff;
+            transform: scale(1.1);
+        }
+
+        .skill-card p {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: #333;
+            margin: 0;
+            line-height: 1.2;
+        }
+
+        .carousel-track.reverse {
+            animation: scrollReverse 20s linear infinite;
+        }
+
+        @keyframes scroll {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        @keyframes scrollReverse {
+            0% {
+                transform: translateX(-50%);
+            }
+            100% {
+                transform: translateX(0);
+            }
+        }
+
+        /* What I Can Do Section */
+        .services-section {
+            background: white;
+            padding: 4rem 2rem;
+            color: #333;
+        }
+
+        .services-section h2 {
+            text-align: center;
+            margin-bottom: 1rem;
+            font-size: 2.5rem;
+            color: #333;
+        }
+
+        .services-intro {
+            text-align: center;
+            font-size: 1.2rem;
+            margin-bottom: 3rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.6;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .service-card {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            border: 2px solid #f0f0f0;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #8c52ff, #8c52ff);
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+            border-color: #8c52ff;
+        }
+
+        .service-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            border-radius: 10px;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-image i {
+            font-size: 4rem;
+            color: #8c52ff;
+            opacity: 0.8;
+        }
+
+        .service-tag {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: #28a745;
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .service-meta {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        .service-meta div {
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+
+        .service-description {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: #333;
+            font-weight: 500;
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .skill-card {
+                min-width: 120px;
+                height: 120px;
+                padding: 1rem;
+            }
+
+            .skill-card i {
+                font-size: 2rem;
+            }
+
+            .skill-card p {
+                font-size: 0.8rem;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .service-card {
+                padding: 1.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .skill-card {
+                min-width: 100px;
+                height: 100px;
+                padding: 0.8rem;
+            }
+
+            .skill-card i {
+                font-size: 1.5rem;
+            }
+
+            .skill-card p {
+                font-size: 0.7rem;
+            }
+        }
+
         .carousel {
             position: relative;
             overflow: hidden;
@@ -330,11 +596,12 @@ body.light .light-mode-video {
 
         .portfolio-image {
             width: 100%;
-            height: 100%; /* Fill the container */
-            object-fit: contain; /* Ensures the entire image is visible without cropping */
+            height: 100%;
+            /* Fill the container */
+            object-fit: contain;
+            /* Ensures the entire image is visible without cropping */
             border-radius: 10px;
             margin-bottom: 1rem
-           
         }
 
         .portfolio-link h3 {
@@ -367,7 +634,8 @@ body.light .light-mode-video {
             transition: background-color 0.3s;
         }
 
-        .carousel-button:hover, .carousel-button:focus {
+        .carousel-button:hover,
+        .carousel-button:focus {
             background-color: rgba(0, 0, 0, 0.8);
             transform: scale(1.1);
         }
@@ -378,349 +646,378 @@ body.light .light-mode-video {
             text-align: center;
             padding: 1rem 0;
         }
+
         .contact-links {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1rem;
-    margin-top: 2rem;
-}
-/* Avatar Styling */
-#chat-avatar {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    width: 60px;
-    height: 60px;
-    background-color: rgb(231, 13, 13);
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    z-index: 1000;
-}
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
 
-#chat-avatar img {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-}
+        /* Avatar Styling */
+        #chat-avatar {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 60px;
+            height: 60px;
+            background-color: rgb(231, 13, 13);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+        }
 
-/* Chat Container */
-#chat-container {
-    display: none;
-    opacity: 0;
-    transform: translateY(10%);
-    transition: opacity 0.3s ease, transform 0.3s ease;
-    position: fixed;
-    bottom: 100px;
-    right: 20px;
-    width: 350px;
-    background-color: #fff;
-    border-radius: 20px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-    font-family: 'Montserrat', sans-serif;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    z-index: 999;
-}
+        #chat-avatar img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+        }
 
-#chat-container.show {
-    display: flex;
-    opacity: 1;
-    transform: translateY(0);
-}
+        /* Chat Container */
+        #chat-container {
+            display: none;
+            opacity: 0;
+            transform: translateY(10%);
+            transition: opacity 0.3s ease, transform 0.3s ease;
+            position: fixed;
+            bottom: 100px;
+            right: 20px;
+            width: 350px;
+            background-color: #fff;
+            border-radius: 20px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            font-family: 'Montserrat', sans-serif;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            z-index: 999;
+        }
 
-.hidden {
-    display: none;
-}
-/* Chat Header */
-#chat-header {
-    background: linear-gradient(45deg, rgb(25, 1, 30), rgb(80, 1, 84));
-    color: white;
-    padding: 15px;
-    text-align: center;
-    font-weight: bold;
-    font-size: 1.2em;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
+        #chat-container.show {
+            display: flex;
+            opacity: 1;
+            transform: translateY(0);
+        }
 
+        .hidden {
+            display: none;
+        }
 
-
-/* Chat Body */
-#chat-body {
-    max-height: 400px;
-    overflow-y: auto;
-    padding: 15px;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    background-color: #f9f9f9;
-}
-
-/* Chat Messages */
-.chat-message {
-    padding: 10px 15px;
-    border-radius: 20px;
-    max-width: 80%;
-    word-wrap: break-word;
-    font-size: 0.95em;
-    animation: fadeIn 0.3s ease-in-out;
-}
-
-.chat-message.user {
-    background-color: #076990;
-    align-self: flex-end;
-}
+        /* Chat Header */
+        #chat-header {
+            background: linear-gradient(45deg, rgb(25, 1, 30), rgb(80, 1, 84));
+            color: white;
+            padding: 15px;
+            text-align: center;
+            font-weight: bold;
+            font-size: 1.2em;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
 
 
 
-.chat-message.bot {
-    background-color: #0cb117;
-    align-self: flex-start;
-}
+        /* Chat Body */
+        #chat-body {
+            max-height: 400px;
+            overflow-y: auto;
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            background-color: #f9f9f9;
+        }
 
-body.light-mode .chat-message.bot {
-    background-color: #f0f0f0; 
-    color: #333; 
-    border: 1px solid #ccc;
-}
+        /* Chat Messages */
+        .chat-message {
+            padding: 10px 15px;
+            border-radius: 20px;
+            max-width: 80%;
+            word-wrap: break-word;
+            font-size: 0.95em;
+            animation: fadeIn 0.3s ease-in-out;
+        }
 
-/* Chat Input */
-#chat-input-container {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    padding: 10px;
-    border-top: 1px solid #ddd;
-    background-color: #fff;
-}
+        .chat-message.user {
+            background-color: #076990;
+            align-self: flex-end;
+        }
 
-#chat-input {
-    flex-grow: 1;
-    border: 1px solid #ddd;
-    border-radius: 20px;
-    padding: 10px 15px;
-    font-size: 1em;
-    outline: none;
-    transition: border-color 0.3s ease;
-}
 
-#chat-input:focus {
-    border-color: #270336;
-}
 
-#chat-send-button {
-    background-color: #460463;
-    color: white;
-    border: none;
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
+        .chat-message.bot {
+            background-color: #0cb117;
+            align-self: flex-start;
+        }
 
-#chat-send-button:hover {
-    background-color: #a20cbd;
-}
+        body.light-mode .chat-message.bot {
+            background-color: #f0f0f0;
+            color: #333;
+            border: 1px solid #ccc;
+        }
 
-/* Typing Indicator */
-#typing-indicator {
-    display: none;
-    align-items: center;
-    gap: 5px;
-    margin-top: 10px;
-}
+        /* Chat Input */
+        #chat-input-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px;
+            border-top: 1px solid #ddd;
+            background-color: #fff;
+        }
 
-#typing-indicator span {
-    display: inline-block;
-    width: 8px;
-    height: 8px;
-    background: #34045f;
-    border-radius: 50%;
-    animation: typing 1.5s infinite;
-}
+        #chat-input {
+            flex-grow: 1;
+            border: 1px solid #ddd;
+            border-radius: 20px;
+            padding: 10px 15px;
+            font-size: 1em;
+            outline: none;
+            transition: border-color 0.3s ease;
+        }
 
-#typing-indicator span:nth-child(2) {
-    animation-delay: 0.2s;
-}
+        #chat-input:focus {
+            border-color: #270336;
+        }
 
-#typing-indicator span:nth-child(3) {
-    animation-delay: 0.4s;
-}
+        #chat-send-button {
+            background-color: #460463;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
 
-/* Feedback Buttons */
-#feedback-container {
-    display: flex;
-    gap: 10px;
-    justify-content: center;
-    margin-top: 10px;
-}
+        #chat-send-button:hover {
+            background-color: #a20cbd;
+        }
 
-.feedback-button {
-    background: none;
-    border: none;
-    font-size: 1.2em;
-    cursor: pointer;
-    transition: transform 0.2s ease;
-}
+        /* Typing Indicator */
+        #typing-indicator {
+            display: none;
+            align-items: center;
+            gap: 5px;
+            margin-top: 10px;
+        }
 
-.feedback-button:hover {
-    transform: scale(1.2);
-}
+        #typing-indicator span {
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            background: #34045f;
+            border-radius: 50%;
+            animation: typing 1.5s infinite;
+        }
 
-/* Close Button */
-#chat-close-button {
-    background: none;
-    border: none;
-    color: rgb(255, 255, 255);
-    font-size: 1.5em;
-    cursor: pointer;
-    position: absolute;
-    top: 10px;
-    right: 10px;
-}
+        #typing-indicator span:nth-child(2) {
+            animation-delay: 0.2s;
+        }
 
-#feedback-container {
-    display: flex;
-    gap: 1px; /* Adds a small space between the buttons */
-    justify-content: center; 
-    margin-top: 10px;
-    margin-right: 2px;
-}
+        #typing-indicator span:nth-child(3) {
+            animation-delay: 0.4s;
+        }
 
-.feedback-button {
-    background: none;
-    border: none;
-    font-size: 1.2em; /* Makes the thumbs smaller */
-    cursor: pointer;
-    padding: 5px;
-    transition: transform 0.2s ease;
-}
+        /* Feedback Buttons */
+        #feedback-container {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            margin-top: 10px;
+        }
 
-.feedback-button:hover {
-    transform: scale(1.2); /* Slightly enlarge on hover */
-}
+        .feedback-button {
+            background: none;
+            border: none;
+            font-size: 1.2em;
+            cursor: pointer;
+            transition: transform 0.2s ease;
+        }
 
-.feedback-button:focus {
-    outline: 2px solid #4caf50; 
-}
+        .feedback-button:hover {
+            transform: scale(1.2);
+        }
 
-@keyframes typing {
-    0%, 80%, 100% {
-        transform: scale(0);
-    }
-    40% {
-        transform: scale(1);
-    }
-}
+        /* Close Button */
+        #chat-close-button {
+            background: none;
+            border: none;
+            color: rgb(255, 255, 255);
+            font-size: 1.5em;
+            cursor: pointer;
+            position: absolute;
+            top: 10px;
+            right: 10px;
+        }
 
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(10px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
+        #feedback-container {
+            display: flex;
+            gap: 1px;
+            /* Adds a small space between the buttons */
+            justify-content: center;
+            margin-top: 10px;
+            margin-right: 2px;
+        }
 
-.contact-link {
-    text-decoration: none;
-    color: rgb(255, 255, 255);
-    font-size: 1.5rem;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    transition: color 0.3s;
-}
+        .feedback-button {
+            background: none;
+            border: none;
+            font-size: 1.2em;
+            /* Makes the thumbs smaller */
+            cursor: pointer;
+            padding: 5px;
+            transition: transform 0.2s ease;
+        }
 
-.contact-link:hover {
-    color: rgb(110, 9, 241);
-}
+        .feedback-button:hover {
+            transform: scale(1.2);
+            /* Slightly enlarge on hover */
+        }
 
-.contact-link i {
-    font-size: 1.8rem;
-}
-body.light .contact-link{
-    color: #5a4635;
-}
-body.light .contact-link:hover{
-    color: rgb(110, 9, 241);
-}
-body.light .skills-category {
-    background-color: #f1d9c4; 
-    border: 1px solid #ddd; 
-    color: #000; 
-}
+        .feedback-button:focus {
+            outline: 2px solid #4caf50;
+        }
 
-body.light .skills-category h3 {
-    color: #5a4635;
-}
+        @keyframes typing {
 
-body.light .skill {
-    background-color: #db8031; /* Light background for skill icons */
-    color: #333; /* Darker color for skill text and icons */
-}
+            0%,
+            80%,
+            100% {
+                transform: scale(0);
+            }
 
-body.light .skill:hover {
-    background-color: #ddd; /* Slightly darker background on hover */
-    color: #000; /* Ensure the text and icons are clearly visible */
-}
- 
+            40% {
+                transform: scale(1);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .contact-link {
+            text-decoration: none;
+            color: rgb(255, 255, 255);
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: color 0.3s;
+        }
+
+        .contact-link:hover {
+            color: rgb(110, 9, 241);
+        }
+
+        .contact-link i {
+            font-size: 1.8rem;
+        }
+
+        body.light .contact-link {
+            color: #8c52ff;
+        }
+
+        body.light .contact-link:hover {
+            color: rgba(80, 9, 172, 1);
+        }
+
+        body.light .skills-category {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            color: #000;
+        }
+
+        body.light .skills-category h3 {
+            color: #8c52ff;
+        }
+
+        body.light .skill {
+            background-color: #db8031;
+            /* Light background for skill icons */
+            color: #333;
+            /* Darker color for skill text and icons */
+        }
+
+        body.light .skill:hover {
+            background-color: #ddd;
+            /* Slightly darker background on hover */
+            color: #000;
+            /* Ensure the text and icons are clearly visible */
+        }
+
 
         /* Light Mode Colors */
         body.light {
-            background-color: #f5e6d9;
-            color: #5a4635;
+            background-color: #fff;
+            color: #000;
         }
-        body.light .skill, body.light .portfolio-item {
-            background-color: #ead9c9;
-            color: #5a4635;
+
+        body.light .skill,
+        body.light .portfolio-item {
+            background-color: #fff;
+            color: #8c52ff;
         }
+
         body.light .header {
-            background-color: #e4d3c4;
+            background-color: #fff;
         }
+
         body.light .nav-links a {
-            color: #5a4635;
+            color: #8c52ff;
         }
+
         body.light .btn {
-            background-color: #d9c3b5;
-            color: #5a4635;
+            background-color: #fff;
+            color: #8c52ff;
         }
+
         body.light .btn:hover {
             background-color: #ccb7a7;
         }
 
         /* Light Mode Footer Styling */
-body.light .footer {
-    background-color: #f5e6d9; /* Light background */
-    color: #5a4635; /* Dark text color */
-    border-top: 1px solid #ddd; /* Optional border for separation */
-    padding: 1.5rem;
-    text-align: center;
-    font-size: 1rem;
-}
+        body.light .footer {
+            background-color: #fff;
+            /* Light background */
+            color: #8c52ff;
+            /* Dark text color */
+            border-top: 1px solid #ddd;
+            /* Optional border for separation */
+            padding: 1.5rem;
+            text-align: center;
+            font-size: 1rem;
+        }
 
-body.light .footer a {
-    color: #8b4513; /* Subtle color for links */
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
+        body.light .footer a {
+            color: #5417cfff;
+            /* Subtle color for links */
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
 
-body.light .footer a:hover {
-    color: #d2691e; /* Slightly darker shade on hover */
-}
+        body.light .footer a:hover {
+            color: #5417cfff;
+            /* Slightly darker shade on hover */
+        }
 
 
         /* Keyframes */
@@ -728,15 +1025,18 @@ body.light .footer a:hover {
             from {
                 opacity: 0;
             }
+
             to {
                 opacity: 1;
             }
         }
+
         @keyframes slideInText {
             from {
                 opacity: 0;
                 transform: translateY(20px);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0);
@@ -744,6 +1044,7 @@ body.light .footer a:hover {
         }
     </style>
 </head>
+
 <body>
     <header class="header">
         <nav class="navbar">
@@ -751,7 +1052,7 @@ body.light .footer a:hover {
                 <img src="dmlogo.png" alt="Emelda Logo" class="logo-image dark-mode-logo">
                 <img src="lmlogo.png" alt="Emelda Logo" class="logo-image light-mode-logo">
             </a>
-            
+
             <ul class="nav-links">
                 <li><a href="#about">About</a></li>
                 <li><a href="#skills">Skills</a></li>
@@ -766,9 +1067,29 @@ body.light .footer a:hover {
         </nav>
     </header>
 
+        <!-- Scroll to Top Button -->
+        <button id="scrollToTopBtn" title="Scroll to top">
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        <script>
+        // Show/hide scroll-to-top button
+        const scrollBtn = document.getElementById('scrollToTopBtn');
+        window.addEventListener('scroll', function() {
+            // Show when user is near the bottom (e.g., last 400px)
+            if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 400) {
+                scrollBtn.classList.add('show');
+            } else {
+                scrollBtn.classList.remove('show');
+            }
+        });
+        // Scroll to top on click
+        scrollBtn.addEventListener('click', function() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+        </script>
     <section class="hero" id="hero">
         <video class="hero-video dark-mode-video" autoplay muted loop playsinline>
-            <source src="db.mp4" type="video/mp4">
+            <source src="db1.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
         <video class="hero-video light-mode-video" autoplay muted loop playsinline>
@@ -777,182 +1098,281 @@ body.light .footer a:hover {
         </video>
         <div class="hero-content">
             <div class="hero-text-background">
-                <h1>Hi, I'm Emelda</h1>
-                <p>Full-Stack Web Developer, AI Engineer, & Graphic Designer</p>
-                <a href="#portfolio" class="btn">View My Work</a>
+                <!-- <h1>Hi, I'm Emelda</h1> -->
+                <!-- <p>Full-Stack Web Developer, AI Engineer, & Graphic Designer</p> -->
+                <a href="#portfolio" class="btn" style="background-color: #8c52ff; color: #fff; border: none;">Explore More</a>
             </div>
         </div>
     </section>
-    
-    
+
+
 
     <section class="about" id="about">
         <h2>About Me</h2>
-        <p>I transform ideas into reality through cutting-edge web design, intelligent AI solutions, and user-centric experiences.
+        <p>I transform ideas into reality through cutting-edge web design, intelligent AI solutions, and user-centric
+            experiences.
             <br> With a passion for innovation and an eye for detail, I craft sleek, modern interfaces that engage, inspire, and deliver measurable results.</br>
 
             <br>Whether you're looking to build a visionary platform or enhance your digital presence,
-             I'm here to make it happen.</br> 
-             <h3>Let's collaborate to create solutions that not only meet your needs but exceed your expectations.</h3></p>
+             I'm here to make it happen.</br>
+        <h3>Let's collaborate to create solutions that not only meet your needs but exceed your expectations.</h3>
+        </p>
     </section>
 
-    <section class="skills" id="skills">
-        <h2>Skills</h2>
-    
-        <!-- Row 1: Web Development and AI & Machine Learning -->
-        <div class="skills-row">
-            <div class="skills-category">
-                <h3>Web Development</h3>
-                <div class="skills-grid">
-                    <div class="skill" title="HyperText Markup Language">
-                        <i class="fab fa-html5"></i>
-                        <p>HTML5</p>
-                    </div>
-                    <div class="skill" title="Cascading Style Sheets and bootstrap5">
-                        <i class="fab fa-css3-alt"></i>
-                        <p>CSS3</p>
-                    </div>
-                    <div class="skill" title="JavaScript Programming">
-                        <i class="fab fa-js"></i>
-                        <p>JavaScript</p>
-                    </div>
-                    <div class="skill" title="Flask Framework">
-                        <i class="fas fa-flask"></i>
-                        <p>Flask</p>
-                    </div>
-                    <div class="skill" title="Responsive Web Design">
-                        <i class="fas fa-laptop-code"></i>
-                        <p>Responsive Web Design</p>
-                    </div>
-                    <div class="skill" title="Animation & Interactivity">
-                        <i class="fas fa-paint-brush"></i>
-                        <p>Animation & Interactivity</p>
-                    </div>
-                    <div class="skill" title="Front-End Optimization">
-                        <i class="fas fa-rocket"></i>
-                        <p>Front-End Optimization</p>
-                    </div>
-                </div>
-            </div>
-    
-            <div class="skills-category">
-                <h3>AI & Machine Learning</h3>
-                <div class="skills-grid">
-                    <div class="skill" title="Python Programming">
+   <section class="skills" id="skills">
+        <h2>Skills & Expertise</h2>
+
+        <!-- First Carousel: Core Technical & Frontend Skills -->
+        <div class="carousel-container">
+            <div class="carousel-track">
+                <div class="carousel-row">
+                    <div class="skill-card" title="Python Development - The programming language I use to build smart systems that can process data, automate repetitive tasks, and create AI models that learn and make predictions">
                         <i class="fab fa-python"></i>
-                        <p>Python Programming</p>
+                        <p>Python Development</p>
                     </div>
-                    <div class="skill" title="AI Model Development & Deployment">
-                        <i class="fas fa-robot"></i>
-                        <p>AI Model Development</p>
+                    <div class="skill-card" title="Flask & Backend Development - Building the invisible 'engine' that powers websites and apps - handling data, user accounts, payments, and making everything work behind the scenes">
+                        <i class="fas fa-flask"></i>
+                        <p>Flask & Backend</p>
                     </div>
-                    <div class="skill" title="Conversational AI">
-                        <i class="fas fa-comments"></i>
-                        <p>Conversational AI</p>
+                    <div class="skill-card" title="React & React Native - Creating modern, interactive websites and mobile apps that work smoothly on phones, tablets, and computers with beautiful user interfaces">
+                        <i class="fab fa-react"></i>
+                        <p>React & React Native</p>
                     </div>
-                    <div class="skill" title="Data Analytics & Visualization">
-                        <i class="fas fa-chart-bar"></i>
-                        <p>Data Analytics</p>
-                    </div>
-                    <div class="skill" title="Sentiment Analysis">
-                        <i class="fas fa-brain"></i>
-                        <p>Sentiment Analysis</p>
-                    </div>
-                    <div class="skill" title="Route Optimization Algorithms">
-                        <i class="fas fa-map-marked-alt"></i>
-                        <p>Route Optimization</p>
-                    </div>
-                    <div class="skill" title="Optical Character Recognition (OCR)">
-                        <i class="fas fa-file-alt"></i>
-                        <p>OCR</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    
-        <!-- Row 2: Cloud & DevOps and Backend & Databases -->
-        <div class="skills-row">
-            <div class="skills-category">
-                <h3>Cloud & DevOps</h3>
-                <div class="skills-grid">
-                    <div class="skill" title="Continuous Integration & Deployment">
-                        <i class="fas fa-cloud"></i>
-                        <p>CI/CD Pipelines</p>
-                    </div>
-                    <div class="skill" title="Version Control">
-                        <i class="fab fa-git-alt"></i>
-                        <p>Git & Version Control</p>
-                    </div>
-                </div>
-            </div>
-    
-            <div class="skills-category">
-                <h3>Backend & Databases</h3>
-                <div class="skills-grid">
-                    <div class="skill" title="RESTful API Development">
-                        <i class="fas fa-server"></i>
-                        <p>RESTful APIs</p>
-                    </div>
-                    <div class="skill" title="Message Queuing with Kafka">
-                        <i class="fas fa-stream"></i>
-                        <p>Kafka</p>
-                    </div>
-                    <div class="skill" title="Database Management (SQL & NoSQL)">
+                    <div class="skill-card" title="Database Management - Organizing and storing your business data securely so you can easily find, update, and analyze information when you need it">
                         <i class="fas fa-database"></i>
-                        <p>SQL & NoSQL</p>
+                        <p>Database Management</p>
                     </div>
-                </div>
-            </div>
-        </div>
-    
-        <!-- Row 3: Design & UX and Other Tech Areas -->
-        <div class="skills-row">
-            <div class="skills-category">
-                <h3>Design & UX</h3>
-                <div class="skills-grid">
-                    <div class="skill" title="UI/UX Design Principles">
+                    <div class="skill-card" title="Data Visualization - Taking your business numbers and data and turning them into easy-to-understand charts, graphs, and dashboards that help you make better decisions">
+                        <i class="fas fa-chart-bar"></i>
+                        <p>Data Visualization</p>
+                    </div>
+                    <div class="skill-card" title="UI/UX Design - Making websites and apps that are not only beautiful but also easy and enjoyable for your customers to use, leading to better business results">
                         <i class="fas fa-pencil-ruler"></i>
                         <p>UI/UX Design</p>
                     </div>
-                    <div class="skill" title="Figma Design Tool">
-                        <i class="fas fa-drafting-compass"></i>
-                        <p>Figma</p>
+                    <div class="skill-card" title="Branding & Visual Design - Creating your company's visual identity including logos, colors, and design templates that make your business memorable and professional">
+                        <i class="fas fa-palette"></i>
+                        <p>Branding & Design</p>
                     </div>
-                    <div class="skill" title="User-Centered Design">
-                        <i class="fas fa-users"></i>
-                        <p>User-Centered Design</p>
-                    </div>
-                    <div class="skill" title="Wireframing & Prototyping">
+                    <div class="skill-card" title="Prototyping - Creating quick mockups and previews of your app or website idea so you can see and test how it will work before building the final version">
                         <i class="fas fa-project-diagram"></i>
-                        <p>Wireframing</p>
+                        <p>Prototyping</p>
+                    </div>
+                </div>
+                <!-- Duplicate for seamless loop -->
+                <div class="carousel-row">
+                    <div class="skill-card" title="Python Development - The programming language I use to build smart systems that can process data, automate repetitive tasks, and create AI models that learn and make predictions">
+                        <i class="fab fa-python"></i>
+                        <p>Python Development</p>
+                    </div>
+                    <div class="skill-card" title="Flask & Backend Development - Building the invisible 'engine' that powers websites and apps - handling data, user accounts, payments, and making everything work behind the scenes">
+                        <i class="fas fa-flask"></i>
+                        <p>Flask & Backend</p>
+                    </div>
+                    <div class="skill-card" title="React & React Native - Creating modern, interactive websites and mobile apps that work smoothly on phones, tablets, and computers with beautiful user interfaces">
+                        <i class="fab fa-react"></i>
+                        <p>React & React Native</p>
+                    </div>
+                    <div class="skill-card" title="Database Management - Organizing and storing your business data securely so you can easily find, update, and analyze information when you need it">
+                        <i class="fas fa-database"></i>
+                        <p>Database Management</p>
+                    </div>
+                    <div class="skill-card" title="Data Visualization - Taking your business numbers and data and turning them into easy-to-understand charts, graphs, and dashboards that help you make better decisions">
+                        <i class="fas fa-chart-bar"></i>
+                        <p>Data Visualization</p>
+                    </div>
+                    <div class="skill-card" title="UI/UX Design - Making websites and apps that are not only beautiful but also easy and enjoyable for your customers to use, leading to better business results">
+                        <i class="fas fa-pencil-ruler"></i>
+                        <p>UI/UX Design</p>
+                    </div>
+                    <div class="skill-card" title="Branding & Visual Design - Creating your company's visual identity including logos, colors, and design templates that make your business memorable and professional">
+                        <i class="fas fa-palette"></i>
+                        <p>Branding & Design</p>
+                    </div>
+                    <div class="skill-card" title="Prototyping - Creating quick mockups and previews of your app or website idea so you can see and test how it will work before building the final version">
+                        <i class="fas fa-project-diagram"></i>
+                        <p>Prototyping</p>
                     </div>
                 </div>
             </div>
-    
-            <div class="skills-category">
-                <h3>Other Tech Areas</h3>
-                <div class="skills-grid">
-                    <div class="skill" title="Interest in Quantum Computing">
-                        <i class="fas fa-atom"></i>
-                        <p>Quantum Computing</p>
+        </div>
+
+        <!-- Second Carousel: AI & Business Skills (Reverse Direction) -->
+        <div class="carousel-container">
+            <div class="carousel-track reverse">
+                <div class="carousel-row">
+                    <div class="skill-card" title="Conversational AI - Building smart chatbots and virtual assistants that can talk to your customers 24/7, answer questions, take bookings, and provide support just like a human would">
+                        <i class="fas fa-comments"></i>
+                        <p>Conversational AI</p>
                     </div>
-                    <div class="skill" title="Interest in Robotics">
-                        <i class="fas fa-robot"></i>
-                        <p>Robotics</p>
+                    <div class="skill-card" title="Predictive Modeling - Using your historical data to predict future trends, like forecasting sales, predicting equipment maintenance needs, or estimating demand">
+                        <i class="fas fa-chart-line"></i>
+                        <p>Predictive Modeling</p>
                     </div>
-                    <div class="skill" title="Event Systems Development">
-                        <i class="fas fa-calendar-alt"></i>
-                        <p>Event Systems</p>
+                    <div class="skill-card" title="Computer Vision - Teaching computers to 'see' and understand images or video, like automatically counting livestock, detecting defects in products, or monitoring security cameras">
+                        <i class="fas fa-eye"></i>
+                        <p>Computer Vision</p>
                     </div>
-                    <div class="skill" title="Automation of Accounting Systems">
-                        <i class="fas fa-file-invoice"></i>
-                        <p>Accounting Automation</p>
+                    <div class="skill-card" title="Process Automation - Setting up systems to handle repetitive tasks automatically, saving you time and reducing human errors in your daily business operations">
+                        <i class="fas fa-cogs"></i>
+                        <p>Process Automation</p>
+                    </div>
+                    <div class="skill-card" title="Explainable AI - Building AI systems that can clearly explain their decisions in simple terms, so you understand and trust how they work">
+                        <i class="fas fa-brain"></i>
+                        <p>Explainable AI</p>
+                    </div>
+                    <div class="skill-card" title="Custom Software Solutions - Building specialized software that fits your unique business needs, whether you're in transport, farming, restaurants, or any other industry">
+                        <i class="fas fa-puzzle-piece"></i>
+                        <p>Custom Solutions</p>
+                    </div>
+                    <div class="skill-card" title="Tech Consulting - Helping you understand which technologies can benefit your business and creating a roadmap for implementing them successfully">
+                        <i class="fas fa-handshake"></i>
+                        <p>Tech Consulting</p>
+                    </div>
+                    <div class="skill-card" title="Project Delivery & Maintenance - Managing your project from initial idea to final launch, then providing ongoing support and updates to keep everything running smoothly">
+                        <i class="fas fa-tools"></i>
+                        <p>Project Delivery</p>
+                    </div>
+                </div>
+                <!-- Duplicate for seamless loop -->
+                <div class="carousel-row">
+                    <div class="skill-card" title="Conversational AI - Building smart chatbots and virtual assistants that can talk to your customers 24/7, answer questions, take bookings, and provide support just like a human would">
+                        <i class="fas fa-comments"></i>
+                        <p>Conversational AI</p>
+                    </div>
+                    <div class="skill-card" title="Predictive Modeling - Using your historical data to predict future trends, like forecasting sales, predicting equipment maintenance needs, or estimating demand">
+                        <i class="fas fa-chart-line"></i>
+                        <p>Predictive Modeling</p>
+                    </div>
+                    <div class="skill-card" title="Computer Vision - Teaching computers to 'see' and understand images or video, like automatically counting livestock, detecting defects in products, or monitoring security cameras">
+                        <i class="fas fa-eye"></i>
+                        <p>Computer Vision</p>
+                    </div>
+                    <div class="skill-card" title="Process Automation - Setting up systems to handle repetitive tasks automatically, saving you time and reducing human errors in your daily business operations">
+                        <i class="fas fa-cogs"></i>
+                        <p>Process Automation</p>
+                    </div>
+                    <div class="skill-card" title="Explainable AI - Building AI systems that can clearly explain their decisions in simple terms, so you understand and trust how they work">
+                        <i class="fas fa-brain"></i>
+                        <p>Explainable AI</p>
+                    </div>
+                    <div class="skill-card" title="Custom Software Solutions - Building specialized software that fits your unique business needs, whether you're in transport, farming, restaurants, or any other industry">
+                        <i class="fas fa-puzzle-piece"></i>
+                        <p>Custom Solutions</p>
+                    </div>
+                    <div class="skill-card" title="Tech Consulting - Helping you understand which technologies can benefit your business and creating a roadmap for implementing them successfully">
+                        <i class="fas fa-handshake"></i>
+                        <p>Tech Consulting</p>
+                    </div>
+                    <div class="skill-card" title="Project Delivery & Maintenance - Managing your project from initial idea to final launch, then providing ongoing support and updates to keep everything running smoothly">
+                        <i class="fas fa-tools"></i>
+                        <p>Project Delivery</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-    
+
+    <!-- What I Can Do For You Section -->
+    <section class="services-section" id="services">
+        <h2>What I Can Do For You</h2>
+        <div class="services-intro">
+            ✨ I create <strong>tailor-made digital solutions</strong> to help your business grow, streamline operations, and connect with customers.
+        </div>
+
+        <div class="services-grid">
+            <!-- Custom Websites & Web Apps -->
+            <div class="service-card">
+                <div class="service-image">
+                    <i class="fas fa-globe-americas"></i>
+                    <div class="service-tag">POPULAR</div>
+                </div>
+                <div class="service-meta">
+                    <div><i class="fas fa-code"></i> Web Development</div>
+                    <div><i class="fas fa-mobile-alt"></i> Responsive</div>
+                </div>
+                <div class="service-description">
+                    <strong>Custom Websites & Web Apps</strong> – professional, responsive, and secure solutions tailored to your business needs.
+                </div>
+            </div>
+
+            <!-- Mobile Apps -->
+            <div class="service-card">
+                <div class="service-image">
+                    <i class="fas fa-mobile-alt"></i>
+                    <div class="service-tag">TRENDING</div>
+                </div>
+                <div class="service-meta">
+                    <div><i class="fab fa-android"></i> Android</div>
+                    <div><i class="fab fa-apple"></i> iOS</div>
+                </div>
+                <div class="service-description">
+                    <strong>Mobile Apps</strong> – engage customers on Android & iOS with intuitive, fast, and feature-rich mobile applications.
+                </div>
+            </div>
+
+            <!-- AI-Powered Tools -->
+            <div class="service-card">
+                <div class="service-image">
+                    <i class="fas fa-brain"></i>
+                    <div class="service-tag">AI</div>
+                </div>
+                <div class="service-meta">
+                    <div><i class="fas fa-robot"></i> Automation</div>
+                    <div><i class="fas fa-chart-line"></i> Analytics</div>
+                </div>
+                <div class="service-description">
+                    <strong>AI-Powered Tools</strong> – chatbots, predictive analytics, and automation systems to streamline your operations.
+                </div>
+            </div>
+
+            <!-- WhatsApp Agents -->
+            <div class="service-card">
+                <div class="service-image">
+                    <i class="fab fa-whatsapp"></i>
+                    <div class="service-tag">HOT</div>
+                </div>
+                <div class="service-meta">
+                    <div><i class="fas fa-comments"></i> Chat</div>
+                    <div><i class="fas fa-headset"></i> Support</div>
+                </div>
+                <div class="service-description">
+                    <strong>WhatsApp Agents</strong> – smart conversational assistants to handle customer queries, bookings, and support directly in WhatsApp.
+                </div>
+            </div>
+
+            <!-- Management Platforms -->
+            <div class="service-card">
+                <div class="service-image">
+                    <i class="fas fa-cogs"></i>
+                    <div class="service-tag">CUSTOM</div>
+                </div>
+                <div class="service-meta">
+                    <div><i class="fas fa-tasks"></i> Management</div>
+                    <div><i class="fas fa-industry"></i> Enterprise</div>
+                </div>
+                <div class="service-description">
+                    <strong>Management Platforms</strong> – tailored systems to simplify and optimize operations in any industry.
+                </div>
+            </div>
+
+            <!-- Branding & Design -->
+            <div class="service-card">
+                <div class="service-image">
+                    <i class="fas fa-palette"></i>
+                    <div class="service-tag">CREATIVE</div>
+                </div>
+                <div class="service-meta">
+                    <div><i class="fas fa-paint-brush"></i> Design</div>
+                    <div><i class="fas fa-user-friends"></i> UX/UI</div>
+                </div>
+                <div class="service-description">
+                    <strong>Branding & Design</strong> – logos, brand identity, and intuitive UI/UX design that makes your business stand out.
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section class="portfolio" id="portfolio">
         <h2>Portfolio</h2>
         <div class="carousel">
@@ -962,41 +1382,41 @@ body.light .footer a:hover {
                         <img src="TastyConnect.png" alt="TastyConnect" class="portfolio-image">
                     </a>
                     <h3>Recipe Sharing Site</h3>
-                        <p>Celebrating African cuisine.</p>
+                    <p>Celebrating African cuisine.</p>
                 </div>
 
-                
+
                 <div class="carousel-item">
                     <a href="https://sizzling-sahara.onrender.com" target="_blank" class="portfolio-link">
                         <img src="sizzlin1.png" alt="Sizzling Sahara" class="portfolio-image">
                     </a>
-                        <h3>Sizzling Sahara</h3>
-                        <p>African Fictional Restaurant with conversational bot and intelligent review analysis.</p>
-                   
+                    <h3>Sizzling Sahara</h3>
+                    <p>African Fictional Restaurant with conversational bot and intelligent review analysis.</p>
+
                 </div>
                 <div class="carousel-item">
                     <a href="https://sizzling-sahara.onrender.com" target="_blank" class="portfolio-link">
                         <img src="sizzlin2.png" alt="Sizzling Sahara" class="portfolio-image">
                     </a>
-                        <h3>Sizzling Sahara</h3>
-                        <p>African Fictional Restaurant with conversational bot and intelligent review analysis.</p>
-                   
+                    <h3>Sizzling Sahara</h3>
+                    <p>African Fictional Restaurant with conversational bot and intelligent review analysis.</p>
+
                 </div>
 
                 <div class="carousel-item">
                     <a href="https://starai.co.zw" target="_blank" class="portfolio-link">
                         <img src="starai1.png" alt="Star International" class="portfolio-image">
                     </a>
-                        <h3>Star International</h3>
-                        <p>Logistics website with a virtual assistant.</p>
-                    
+                    <h3>Star International</h3>
+                    <p>Logistics website with a virtual assistant.</p>
+
                 </div>
                 <div class="carousel-item">
                     <a href="https://starai.co.zw" target="_blank" class="portfolio-link">
                         <img src="starai2.png" alt="Star International" class="portfolio-image">
                     </a>
-                        <h3>Star International</h3>
-                        <p>Logistics website with a virtual assistant.</p>
+                    <h3>Star International</h3>
+                    <p>Logistics website with a virtual assistant.</p>
                 </div>
             </div>
             <div class="carousel-controls">
@@ -1029,11 +1449,12 @@ body.light .footer a:hover {
     <div id="chat-avatar">
         <img src="emelda-avatar.png" alt="Chatbot Avatar" />
     </div>
-    
-    
+
+
 
     <section class="contact" id="contact">
-        <h2>Let's Get In Touch</h2>
+        <h2>I built this site for free — imagine what I can do for you 😉</h2>
+        <h3>Let’s build something new together.</h3>
         <div class="contact-links">
             <a href="mailto:emeldamada5@gmail.com" class="contact-link" target="_blank">
                 <i class="fas fa-envelope"></i> Email
@@ -1049,12 +1470,11 @@ body.light .footer a:hover {
             </a>
         </div>
     </section>
-    
-    
+
+
 
     <footer class="footer">
         <p>&copy; 2024 Emelda. All rights reserved.</p>
-        <a href="https://www.vecteezy.com/free-videos/wave">Wave Stock Videos by Vecteezy</a>
         <a href="https://www.vecteezy.com/free-videos/pastel-colors">Pastel Colors Stock Videos by Vecteezy</a>
     </footer>
 
@@ -1101,24 +1521,20 @@ body.light .footer a:hover {
             item.classList.add('active');
         }
     });
-    console.log(`Carousel updated to index: ${currentIndex}`); // Debug log
 }
 
 nextButton.addEventListener('click', () => {
     currentIndex = (currentIndex + 1) % items.length;
-    console.log('Next button clicked'); // Debug log
     updateCarousel();
 });
 
 prevButton.addEventListener('click', () => {
     currentIndex = (currentIndex - 1 + items.length) % items.length;
-    console.log('Previous button clicked'); // Debug log
     updateCarousel();
 });
 
 setInterval(() => {
     currentIndex = (currentIndex + 1) % items.length;
-    console.log('Auto-rotate triggered'); // Debug log
     updateCarousel();
 }, 5000);
 
@@ -1138,7 +1554,7 @@ async function fetchApiKey() {
         }
         const data = await response.json();
         openaiApiKey = data.apiKey; // Store the API key
-        console.log("API Key Loaded Successfully:", openaiApiKey); // For debugging purposes
+        console.log("API Key Loaded Successfully:"); 
     } catch (error) {
         console.error("Error fetching API key:", error);
     }
@@ -1174,11 +1590,31 @@ async function loadKnowledgeBase() {
 let conversationContext = [ 
     {
     role: 'system',
-    content: `You are a chatbot for Emelda Mada. You know about Emelda Mada's skills, projects, and website content: ${knowledgeBase}. 
-    -Respond only with information about Emelda Mada's services, skills, projects, and pricing.
-    -Avoid redirecting users to the website. Instead, provide actionable responses directly.
-    -Encourage users to engage through this chatbot for their inquiries and quotes.
-    - Use concise and professional language tailored to the user's inquiries.`
+    content: `
+    You are HannahMufaro — an AI Marketing Agent for Emelda Mada.
+    
+    You are warm, friendly, and proudly African.
+    Your role is to convert inquiries into leads, and quotes into paying services.
+    
+    You know about Emelda Mada's skills, services, pricing, and projects from: ${knowledgeBase}
+    
+    Guidelines:
+    - Respond only with information about Emelda Mada’s services and expertise.
+    - Speak in a short, professional, and helpful style — max 15 words unless necessary.
+    - Do not redirect users to the website unless absolutely required.
+    - Always suggest next steps (quote, booking, consultation) to move user closer to becoming a client.
+    - Be confident, encouraging, and solution-oriented.
+    
+    Tone:
+    Friendly. African-local. Business-minded. Service-focused.
+    
+    Example Closing Phrases:
+    - "Shall I prepare a quote for you?"
+    - "Would you like me to book that for you?"
+    - "I can assist with that right away."
+    
+    Your goal: Turn every conversation into a new client for Emelda Mada.
+    `
 },
 ];
 
@@ -1201,25 +1637,46 @@ function addToContext(role, content) {
 
 
 async function saveConversationToDatabase(sessionId, role, content) {
-    try {
-        const response = await fetch('save_conversation.php', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({ session_id: sessionId, role, content }),
-        });
+try {
+const response = await fetch('save_conversation.php', {
+method: 'POST',
+headers: {
+'Content-Type': 'application/json',
+},
+body: JSON.stringify({
+session_id: sessionId,
+role,
+message: content // Correct field name
+}),
+});
 
-        const result = await response.json();
-        if (result.status !== 'success') {
-            console.error('Failed to save conversation:', result.message);
-        }
-    } catch (error) {
-        console.error('Error saving conversation:', error);
-    }
+const result = await response.json();
+console.log('Save Conversation Response:', result);
+if (result.status !== 'success') {
+console.error('Failed to save conversation:', result.message);
+}
+} catch (error) {
+console.error('Error saving conversation:', error);
+}
 }
 
-
+async function savePairToTrainingData(userInput, assistantReply) {
+try {
+await fetch('save_pair.php', {
+method: 'POST',
+headers: {
+'Content-Type': 'application/json',
+},
+body: JSON.stringify({
+session_id: sessionStorage.getItem('session_id') || 'default',
+user_input: userInput,
+assistant_reply: assistantReply
+}),
+});
+} catch (error) {
+console.error('Failed to save training pair:', error);
+}
+}
 
 // Chatbot initialization
 document.addEventListener('DOMContentLoaded', async () => {
@@ -1285,54 +1742,126 @@ document.addEventListener('DOMContentLoaded', async () => {
         });
     }
 
-
-   
-    async function sendMessageToOpenAI(message) {
-        try {
-            // Show typing indicator
-            showTypingIndicator();
-
-            // Always include the system message
-        const fullContext = [
-            {
-                role: 'system',
-                content: `You are a chatbot for Emelda Mada. You know about Emelda Mada's skills, projects, and website content: ${knowledgeBase}.
-                Respond only with Emelda Mada's specific services, pricing, and offerings. Avoid redirecting users to the website.`,
-            },
-            ...conversationContext, 
-        ];
-
-            const requestBody = {
-                model: 'gpt-4o-mini',
-                messages: fullContext,
-            };
-
-            const response = await fetch('https://api.openai.com/v1/chat/completions', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    Authorization: `Bearer ${openaiApiKey}`,
-                },
-                body: JSON.stringify(requestBody),
-            });
-
-            if (!response.ok) throw new Error('Failed to connect to OpenAI API');
-
-            const data = await response.json();
-            hideTypingIndicator();
-            const botResponse = data.choices?.[0]?.message?.content || 'No response from bot.';
-            displayMessage(botResponse, 'bot');
-            addToContext('assistant', botResponse); // Add bot's response to context
-        } catch (error) {
-            hideTypingIndicator();
-            displayMessage('Something went wrong. Please try again.', 'bot');
-            console.error('Error:', error);
-        }
+    async function generateChatSummary() {
+    const summaryPrompt = [
+    {
+    role: 'system',
+    content:   `You are a professional assistant summarizer. Create a brief summary of the conversation, focusing on services
+    discussed, quotes requested, and the user's goals.`
+    },
+    ...conversationContext
+    ];
+    
+    const response = await fetch('https://api.openai.com/v1/chat/completions', {
+    method: 'POST',
+    headers: {
+    'Content-Type': 'application/json',
+    Authorization: `Bearer ${openaiApiKey}`,
+    },
+    body: JSON.stringify({
+    model: 'gpt-4o',
+    messages: summaryPrompt
+    }),
+    });
+    
+    const data = await response.json();
+    const summaryText = data.choices?.[0]?.message?.content || 'No summary generated.';
+    return summaryText;
     }
-   
 
+
+
+async function sendSummaryByEmail(summaryText) {
+const emailPayload = {
+email: 'emeldama@emeldamada.co.zw', 
+subject: '📝 New Chat Summary from Emelda Agent',
+message: summaryText,
+};
+
+const response = await fetch('send_summary_email.php', {
+method: 'POST',
+headers: {
+'Content-Type': 'application/json',
+},
+body: JSON.stringify(emailPayload),
 });
 
-</script
+const result = await response.json();
+console.log('✅ Email status:', result);
+}
+
+
+async function sendMessageToOpenAI(message) {
+try {
+showTypingIndicator();
+
+const memoryResponse = await fetch('find_best_reply.php', {
+method: 'POST',
+headers: {
+'Content-Type': 'application/x-www-form-urlencoded',
+},
+body: new URLSearchParams({ message }),
+});
+
+const memoryData = await memoryResponse.json();
+
+if (memoryData.reply && memoryData.score >= 0.8) {
+hideTypingIndicator();
+displayMessage(memoryData.reply, 'bot');
+addToContext('assistant', memoryData.reply);
+return;
+}
+
+const fullContext = [
+conversationContext[0],
+...conversationContext.slice(1),
+{ role: 'user', content: message },
+{
+role: 'system',
+content: `
+Think step by step like a marketing assistant:
+
+- What is the user asking or interested in?
+- What service or package fits their need?
+- What is the best next action to turn this into a client? (Quote, Booking, Payment)
+- Respond briefly and professionally.
+- Always suggest a next step or offer to help further.
+`
+}
+];
+const requestBody = {
+model: 'gpt-4o',
+messages: fullContext,
+};
+
+const response = await fetch('https://api.openai.com/v1/chat/completions', {
+method: 'POST',
+headers: {
+'Content-Type': 'application/json',
+Authorization: `Bearer ${openaiApiKey}`,
+},
+body: JSON.stringify(requestBody),
+});
+
+if (!response.ok) throw new Error('Failed to connect to OpenAI API');
+
+const data = await response.json();
+hideTypingIndicator();
+
+const botResponse = data.choices?.[0]?.message?.content || 'No response from bot.';
+displayMessage(botResponse, 'bot');
+addToContext('assistant', botResponse);
+
+await savePairToTrainingData(message, botResponse);
+
+} catch (error) {
+hideTypingIndicator();
+displayMessage('Something went wrong. Please try again.', 'bot');
+console.error('Error:', error);
+}
+}
+});
+</script>
 </body>
+
 </html>
