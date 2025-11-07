@@ -406,16 +406,16 @@
 
         /* What I Can Do Section */
         .services-section {
-            background: white;
+            background: black;
             padding: 4rem 2rem;
-            color: #333;
+            color: #fff;
         }
 
         .services-section h2 {
             text-align: center;
             margin-bottom: 1rem;
             font-size: 2.5rem;
-            color: #333;
+            color: white;
         }
 
         .services-intro {
@@ -437,7 +437,7 @@
         }
 
         .service-card {
-            background: white;
+            background: black;
             border-radius: 15px;
             padding: 2rem;
             box-shadow: 0 8px 25px rgba(0,0,0,0.1);
@@ -499,7 +499,7 @@
             gap: 1rem;
             margin-bottom: 1rem;
             font-size: 0.9rem;
-            color: #666;
+            color: #e1dfdfff;
         }
 
         .service-meta div {
@@ -511,9 +511,50 @@
         .service-description {
             font-size: 1rem;
             line-height: 1.6;
-            color: #333;
+            color: #fff;
             font-weight: 500;
         }
+        /* Light mode adjustments for services section */
+body.light .services-section {
+    background: white; /* Change to white background */
+    color: #333; /* Dark text for light mode */
+}
+
+body.light .services-section h2 {
+    color: #333; /* Dark heading for light mode */
+}
+
+body.light .services-intro {
+    color: #333; /* Dark text for intro */
+}
+
+body.light .service-card {
+    background: white; /* White background for cards */
+    border: 2px solid #e0e0e0; /* Light gray border */
+    color: #333; /* Dark text */
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1); /* Subtle shadow */
+}
+
+body.light .service-card:hover {
+    box-shadow: 0 15px 35px rgba(0,0,0,0.2); /* Darker shadow on hover */
+    border-color: #8c52ff; /* Keep purple accent on hover */
+}
+
+body.light .service-description {
+    color: #333; /* Dark text for descriptions */
+}
+
+body.light .service-meta {
+    color: #666; /* Slightly lighter gray for meta info */
+}
+
+body.light .service-image {
+    background: linear-gradient(135deg, #f8f9fa, #e9ecef); /* Keep the same light gradient */
+}
+
+body.light .service-image i {
+    color: #8c52ff; /* Keep purple icons */
+}
 
         /* Responsive design */
         @media (max-width: 768px) {
@@ -913,24 +954,95 @@
                 transform: translateY(0);
             }
         }
+        /* Contact section with video background */
+.contact {
+    position: relative;
+    padding: 4rem 2rem;
+    text-align: center;
+    overflow: hidden;
+    min-height: 50vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
-        .contact-link {
-            text-decoration: none;
-            color: rgb(255, 255, 255);
-            font-size: 1.5rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            transition: color 0.3s;
-        }
+.contact-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -2;
+}
 
-        .contact-link:hover {
-            color: rgb(110, 9, 241);
-        }
+.contact-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6); /* Dark overlay for readability */
+    z-index: -1;
+}
 
-        .contact-link i {
-            font-size: 1.8rem;
-        }
+.contact-content {
+    position: relative;
+    z-index: 1;
+    color: white;
+}
+
+.contact-content h2,
+.contact-content h3 {
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+    margin-bottom: 1.5rem;
+}
+
+/* Update contact links for better visibility */
+.contact-link {
+    text-decoration: none;
+    color: white;
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: color 0.3s, transform 0.3s;
+    padding: 0.5rem;
+    border-radius: 8px;
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    margin: 0.5rem 0;
+}
+
+.contact-link:hover {
+    color: #8c52ff;
+    transform: scale(1.05);
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Light mode adjustments */
+body.light .contact-overlay {
+    background-color: rgba(0, 0, 0, 0.4); /* Light overlay for light mode */
+}
+
+body.light .contact-content h2,
+body.light .contact-content h3 {
+    color: #fff;
+    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
+}
+
+body.light .contact-link {
+    color: #8c52ff;
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+body.light .contact-link:hover {
+    color: #5417cf;
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+       
 
         body.light .contact-link {
             color: #8c52ff;
@@ -1452,9 +1564,21 @@
 
 
 
-    <section class="contact" id="contact">
+   
+<section class="contact" id="contact">
+    <!-- Add the video background -->
+    <video class="contact-video" autoplay muted loop playsinline>
+        <source src="h.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    
+    <!-- Add overlay -->
+    <div class="contact-overlay"></div>
+    
+    <!-- Existing content with updated class -->
+    <div class="contact-content">
         <h2>I built this site for free — imagine what I can do for you 😉</h2>
-        <h3>Let’s build something new together.</h3>
+        <h3>Let's build something new together.</h3>
         <div class="contact-links">
             <a href="mailto:emeldamada5@gmail.com" class="contact-link" target="_blank">
                 <i class="fas fa-envelope"></i> Email
@@ -1469,11 +1593,10 @@
                 <i class="fab fa-whatsapp"></i> WhatsApp
             </a>
         </div>
-    </section>
+    </div>
+</section>
 
-
-
-    <footer class="footer">
+<footer class="footer">
         <p>&copy; 2024 Emelda. All rights reserved.</p>
         <a href="https://www.vecteezy.com/free-videos/pastel-colors">Pastel Colors Stock Videos by Vecteezy</a>
     </footer>
